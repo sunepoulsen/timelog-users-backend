@@ -8,17 +8,10 @@ subprojects {
     repositories {
         mavenLocal()
         mavenCentral()
-
-        maven {
-            url "${System.properties['maven.repository.base.url']}${System.properties['maven.repository.snapshots']}"
-        }
-        maven {
-            url "${System.properties['maven.repository.base.url']}${System.properties['maven.repository.releases']}"
-        }
     }
 
-    sourceCompatibility = JavaVersion.VERSION_16
-    targetCompatibility = JavaVersion.VERSION_16
+    sourceCompatibility = JavaVersion.VERSION_11
+    targetCompatibility = JavaVersion.VERSION_11
 
     task allWrappers(type: Wrapper) {
         gradleVersion = "${project.property('gradle.version')}"
@@ -34,7 +27,7 @@ subprojects {
         implementation "org.slf4j:log4j-over-slf4j:${project.property('log4j-over-slf4j.version')}"
 
         // JUnit
-        testCompile "junit:junit:${project.property('junit.version')}"
+        testImplementation "junit:junit:${project.property('junit.version')}"
 
         // Spock
         testImplementation localGroovy() // Note: using the groovy implementation shipped with gradle

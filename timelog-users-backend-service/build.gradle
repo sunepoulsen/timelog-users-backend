@@ -1,0 +1,18 @@
+plugins {
+    id 'groovy'
+    id 'java'
+    id 'org.springframework.boot' version '2.3.1.RELEASE'
+    id 'io.spring.dependency-management'  version '1.0.9.RELEASE'
+    id 'com.google.cloud.tools.jib' version '2.4.0'
+}
+
+dependencies {
+    // Tech Easy Solutions - Core
+    implementation "dk.sunepoulsen.tech-easy-solutions:tes-spring-boot-service-core:${project.property('tes-spring-boot-service-core.version')}"
+
+    // Spring Boot
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-starter-actuator'
+}
+
+tasks.build.dependsOn tasks.jibDockerBuild
