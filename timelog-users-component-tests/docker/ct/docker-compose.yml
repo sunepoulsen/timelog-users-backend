@@ -1,0 +1,16 @@
+version: "2"
+services:
+  timelog-users-service:
+    image: timelog-users-backend-service:1.0.0-SNAPSHOT
+    environment:
+      - SPRING_PROFILES_ACTIVE=local
+      - JAVA_OPTS=-agentlib:jdwp=transport=dt_socket,address=8000,suspend=n,server=y
+    volumes:
+      - timelog_users_logs:/app/logs
+    ports:
+      - "8080"
+      - "8000"
+
+volumes:
+  timelog_users_logs:
+    driver: local
