@@ -7,3 +7,7 @@ dependencies {
     implementation "dk.sunepoulsen.tech-easy-solutions:tes-spring-boot-component-tests-core:${project.property('tes-spring-boot-component-tests.version')}"
     implementation "dk.sunepoulsen.tech-easy-solutions:tes-spring-boot-client-core:${project.property('tes-spring-boot-client-core.version')}"
 }
+
+test {
+    systemProperty "stress.test.profile", System.getProperty("stress.test.profile")
+}

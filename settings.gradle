@@ -2,4 +2,5 @@ rootProject.name = 'timelog-users-backend'
 
 include 'timelog-users-backend-service'
 include 'timelog-users-component-tests'
+include 'timelog-users-stress-tests'
 

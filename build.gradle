@@ -45,3 +45,11 @@ project('timelog-users-component-tests') {
         }
     }
 }
+
+project('timelog-users-stress-tests') {
+    test {
+        onlyIf {
+            project.hasProperty("stress-tests")
+        }
+    }
+}
